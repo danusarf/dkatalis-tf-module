@@ -30,7 +30,7 @@ resource "aws_iam_policy" "ec2-master" {
           "secretsmanager:UpdateSecretVersionStage",
           "secretsmanager:RemoveRegionsFromReplication"
         ]
-        Resource = "arn:aws:secretsmanager:us-east-1:466123950281:secret:elasticsearch/initial-credentials/${local.env}-dkatalis-es-cluster*"
+        Resource = "arn:aws:secretsmanager:us-east-1:466123950281:secret:elasticsearch/initial-credentials/${local.env}*"
       },
       {
         Sid = "SecretsManagerListAccess"

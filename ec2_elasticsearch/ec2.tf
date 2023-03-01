@@ -14,7 +14,7 @@ module "ec2_instance" {
   subnet_id       = data.terraform_remote_state.vpc.outputs.vpc.private_subnets[0]
 
   key_name              = var.key_name
-  user_data             = templatefile("userdata/master.sh.tpl", {
+  user_data             = templatefile("${path.module}/userdata/master.sh.tpl", {
     secret_name = "elasticsearch/initial-credentials/${local.es_master_name}"
   })
 }
